@@ -1,3 +1,5 @@
+targetScope = 'subscription'
+
 param location string = 'westeurope'
 param env string = 'dev'
 
