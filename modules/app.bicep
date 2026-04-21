@@ -1,7 +1,7 @@
 param appName string
 param location string = resourceGroup().location
 
-resource appPlan 'Microsoft.Web/serverFarms@2023-08-01' = {
+resource appPlan 'Microsoft.Web/serverFarms@2024-11-01' = {
   name: '${appName}-plan'
   location: location
   sku: {
@@ -10,7 +10,7 @@ resource appPlan 'Microsoft.Web/serverFarms@2023-08-01' = {
   }
 }
 
-resource appSite 'Microsoft.Web/sites@2023-08-01' = {
+resource appSite 'Microsoft.Web/sites@2024-11-01' = {
   name: appName
   location: location
   properties: {

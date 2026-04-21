@@ -1,7 +1,7 @@
 param vnetName string
 param location string = resourceGroup().location
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-08-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2024-10-01' = {
   name: vnetName
   location: location
   properties: {
