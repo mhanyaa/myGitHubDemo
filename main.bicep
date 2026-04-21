@@ -3,7 +3,7 @@ param env string = 'dev'
 
 var prefix = 'demo${env}'
 
-resource rg microsoft.'Microsoft.Resources/resourceGroups@2023-05-01' = {
+resource rg 'Microsoft.Resources/resourceGroups@2023-05-01' = {
   name: 'rg-${prefix}'
   location: location
 }
@@ -13,17 +13,17 @@ module network 'modules/network.bicep' = {
   scope: rg
   params: {
     vnetName: 'vnet-${prefix}'
-    location: location  
-      }
+    location: location
+  }
 }
 
 module kv 'modules/keyvault.bicep' = {
   name: 'kv'
   scope: rg
   params: {
-    kvName: 'kv-${prefix}'
-    location: location  
-      }
+    kvname: 'kv-${prefix}'
+    location: location
+  }
 }
 
 module storage 'modules/storage.bicep' = {
@@ -31,8 +31,8 @@ module storage 'modules/storage.bicep' = {
   scope: rg
   params: {
     storageName: 'st${uniqueString(prefix)}'
-    location: location  
-      }
+    location: location
+  }
 }
 
 module app 'modules/app.bicep' = {
@@ -40,7 +40,7 @@ module app 'modules/app.bicep' = {
   scope: rg
   params: {
     appName: 'app-${prefix}'
-    location: location  
-      }
-} 
+    location: location
+  }
+}
 

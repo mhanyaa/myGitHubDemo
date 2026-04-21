@@ -1,4 +1,3 @@
-@secure()
 param kvname string
 param location string = resourceGroup().location
 
