@@ -1,0 +1,46 @@
+param location string = 'westeurope'
+param env string = 'dev'
+
+var prefix = 'demo${env}'
+
+resource rg microsoft.'Microsoft.Resources/resourceGroups@2023-05-01' = {
+  name: 'rg-${prefix}'
+  location: location
+}
+
+module network 'modules/network.bicep' = {
+  name: 'network'
+  scope: rg
+  params: {
+    vnetName: 'vnet-${prefix}'
+    location: location  
+      }
+}
+
+module kv 'modules/keyvault.bicep' = {
+  name: 'kv'
+  scope: rg
+  params: {
+    kvName: 'kv-${prefix}'
+    location: location  
+      }
+}
+
+module storage 'modules/storage.bicep' = {
+  name: 'storage'
+  scope: rg
+  params: {
+    storageName: 'st${uniqueString(prefix)}'
+    location: location  
+      }
+}
+
+module app 'modules/app.bicep' = {
+  name: 'app'
+  scope: rg
+  params: {
+    appName: 'app-${prefix}'
+    location: location  
+      }
+} 
+
