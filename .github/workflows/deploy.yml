@@ -27,7 +27,7 @@ jobs:
         run: az bicep build --file main.bicep --outdir compiled
 
       - name: What-If (Plan)
-        run: az deployment sub what-if --location westeurope --template-file main.bicep --parameters @params/dev.bicepparam
+        run: az deployment sub what-if --location westeurope --template-file main.bicep --parameters params/dev.bicepparam
 
       - name: Deploy
-        run: az deployment sub create --location westeurope --template-file main.bicep --parameters @params/dev.bicepparam
+        run: az deployment sub create --location westeurope --template-file main.bicep --parameters params/dev.bicepparam
