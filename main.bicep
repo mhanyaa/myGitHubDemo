@@ -23,7 +23,7 @@ module kv 'modules/keyvault.bicep' = {
   name: 'kv'
   scope: rg
   params: {
-    kvname: 'kv-${prefix}'
+    kvname: 'kv-${prefix}01'
     location: location
   }
 }
