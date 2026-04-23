@@ -29,6 +29,15 @@ resource vnet 'Microsoft.Network/virtualNetworks@2024-10-01' = {
           addressPrefix: '10.0.3.0/24'
         }
       }
+      {
+        name: 'private-endpoint-subnet'
+        properties: {
+          addressPrefix: '10.0.4.0/24'
+          privateEndpointNetworkPolicies: 'Disabled'
+        }
+      }
     ]
   }
 }
+
+output privateEndpointSubnetId string = hub.properties.subnets[1].id

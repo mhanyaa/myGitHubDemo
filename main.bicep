@@ -67,3 +67,14 @@ module spoke2 'modules/spoke.bicep' = {
     location: location
   }
 }
+
+module peStorage 'modules/privateendpoint-storage.bicep' = {
+  name: 'peStorageDeploy'
+  scope: rg
+  params: {
+    peName: 'pe-storage'
+    subnetId: hub.outputs.privateEndpointSubnetId
+    storageAccountId: storage.outputs.storageId
+    location: location
+  }
+}
