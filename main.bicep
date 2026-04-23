@@ -46,3 +46,24 @@ module app 'modules/app.bicep' = {
   }
 }
 
+module spoke1 'modules/spoke.bicep' = {
+  name: 'spoke1Deploy'
+  scope: rg
+  params: {
+    vnetName: 'vnet-spoke-app'
+    addressPrefix: '10.1.0.0/16'
+    subnetPrefix: '10.1.1.0/24'
+    location: location
+  }
+}
+
+module spoke2 'modules/spoke.bicep' = {
+  name: 'spoke2Deploy'
+  scope: rg
+  params: {
+    vnetName: 'vnet-spoke-data'
+    addressPrefix: '10.2.0.0/16'
+    subnetPrefix: '10.2.1.0/24'
+    location: location
+  }
+}
