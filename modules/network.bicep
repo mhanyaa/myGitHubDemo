@@ -40,4 +40,4 @@ resource vnet 'Microsoft.Network/virtualNetworks@2024-10-01' = {
   }
 }
 
-output privateEndpointSubnetId string = hub.properties.subnets[1].id
+output privateEndpointSubnetId string = vnet.properties.subnets[3].id
