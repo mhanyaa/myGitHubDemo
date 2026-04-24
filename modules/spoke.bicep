@@ -24,3 +24,4 @@ resource spoke 'Microsoft.Network/virtualNetworks@2024-10-01' = {
 }
 
 output spokeVnetId string = spoke.id
+output subnetId string = '${spoke.id}/subnets/workload-subnet'

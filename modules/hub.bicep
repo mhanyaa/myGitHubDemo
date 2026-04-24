@@ -29,4 +29,3 @@ resource hub 'Microsoft.Network/virtualNetworks@2024-10-01' = {
 }
 
 
-output privateEndpointSubnetId string = hub.properties.subnets[1].id
